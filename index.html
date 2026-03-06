@@ -3,86 +3,496 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SnaFrate — Coming Soon</title>
-
-<!-- Favicon / Logo -->
-<link rel="icon" type="image/png" href="/assets/images/logo.png"/>
-<link rel="apple-touch-icon" href="/assets/images/logo.png"/>
-<link rel="stylesheet" href="assets/css/style.css"/>
-
-<!-- Open Graph / WhatsApp preview -->
+<title>SnaFrate | Coming Soon</title>
+<meta property="og:title"       content="SnaFrate – Shop Wholesale. Ship Anywhere."/>
+<meta property="og:description" content="A modern B2B wholesale marketplace connecting Ghana to global suppliers."/>
+<meta property="og:image"       content="https://snafrate.com/assets/images/og-preview.png"/>
 <meta property="og:type"        content="website"/>
 <meta property="og:url"         content="https://snafrate.com"/>
-<meta property="og:title"       content="SnaFrate — Coming Soon"/>
-<meta property="og:description" content="Ghana's wholesale marketplace. Shop bulk, import direct from China. Launching soon."/>
-<meta property="og:image"       content="https://snafrate.com/assets/images/og-preview.png"/>
+<meta name="twitter:card"       content="summary_large_image"/>
+<meta name="twitter:image"      content="https://snafrate.com/assets/images/og-preview.png"/>
+<link rel="icon"             type="image/png" href="/assets/images/logo.png"/>
+<link rel="apple-touch-icon"                  href="/assets/images/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 
-<!-- Twitter/X -->
-<meta name="twitter:card"        content="summary_large_image"/>
-<meta name="twitter:title"       content="SnaFrate — Coming Soon"/>
-<meta name="twitter:description" content="Ghana's wholesale marketplace. Launching soon."/>
-<meta name="twitter:image"       content="https://snafrate.com/assets/images/og-preview.png"/>
+body {
+  min-height: 100vh;
+  background: #080d1a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+/* Glows */
+body::before {
+  content: "";
+  position: fixed;
+  left: -200px; top: 10%;
+  width: 520px; height: 520px;
+  background: #1E56B0;
+  filter: blur(190px);
+  opacity: 0.4;
+  animation: breathe 7s ease-in-out infinite;
+  z-index: 0;
+}
+body::after {
+  content: "";
+  position: fixed;
+  right: -180px; bottom: -80px;
+  width: 420px; height: 420px;
+  background: #F4A300;
+  filter: blur(170px);
+  opacity: 0.25;
+  animation: breathe 7s ease-in-out infinite reverse;
+  z-index: 0;
+}
+@keyframes breathe {
+  0%,100% { opacity: 0.4;  transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(1.06); }
+}
+
+/* Wrapper */
+.wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 980px;
+  padding: 60px 32px;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 48px;
+  align-items: start;
+}
+
+/* Vertical divider */
+.vdivider {
+  width: 1px;
+  background: rgba(255,255,255,0.07);
+  align-self: stretch;
+  min-height: 320px;
+  opacity: 0;
+  animation: up 0.8s cubic-bezier(.22,1,.36,1) 0.3s forwards;
+}
+
+/* ── LEFT SIDE ── */
+.left { padding-right: 8px; }
+
+.logo {
+  font-size: clamp(48px, 8vw, 76px);
+  font-weight: 700;
+  background: linear-gradient(90deg, #6BB7FF, #1E56B0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: up 0.75s cubic-bezier(.22,1,.36,1) 0.1s forwards;
+}
+
+.tagline {
+  margin-top: 10px;
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 300;
+  color: #cfd8ff;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: up 0.75s cubic-bezier(.22,1,.36,1) 0.22s forwards;
+}
+
+.hdivider {
+  width: 44px;
+  height: 2px;
+  background: linear-gradient(90deg, #1E56B0, #F4A300);
+  border-radius: 2px;
+  margin: 28px 0;
+  opacity: 0;
+  animation: up 0.75s cubic-bezier(.22,1,.36,1) 0.34s forwards;
+}
+
+.coming {
+  font-size: clamp(20px, 3.5vw, 30px);
+  font-weight: 600;
+  letter-spacing: 5px;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: up 0.75s cubic-bezier(.22,1,.36,1) 0.44s forwards;
+}
+
+.desc {
+  margin-top: 16px;
+  color: #8a95c6;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.75;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: up 0.75s cubic-bezier(.22,1,.36,1) 0.54s forwards;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: up 0.75s cubic-bezier(.22,1,.36,1) 0.64s forwards;
+}
+.pill {
+  font-size: 11px;
+  color: #6a77b0;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 100px;
+  padding: 5px 13px;
+}
+
+/* ── RIGHT SIDE ── */
+.right {
+  padding-left: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Each card */
+.card {
+  opacity: 0;
+  transform: translateY(16px);
+}
+.card.c1 { animation: up 0.75s cubic-bezier(.22,1,.36,1) 0.45s forwards; }
+.card.c2 { animation: up 0.75s cubic-bezier(.22,1,.36,1) 0.6s  forwards; }
+.card.c3 { animation: up 0.75s cubic-bezier(.22,1,.36,1) 0.75s forwards; }
+
+.card-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 12px;
+}
+.card-label .dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+}
+.dot-blue { background: #3b82f6; }
+.dot-gold { background: #F4A300; }
+.dot-gray { background: rgba(255,255,255,0.3); }
+
+/* Notify form */
+.form {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.form input {
+  flex: 1;
+  min-width: 0;
+  background: rgba(255,255,255,0.04);
+  border: none;
+  outline: none;
+  padding: 13px 16px;
+  font-size: 13px;
+  color: #fff;
+}
+.form input::placeholder { color: rgba(255,255,255,0.2); }
+.form input:focus { background: rgba(255,255,255,0.06); }
+.form button {
+  flex-shrink: 0;
+  background: #1E56B0;
+  border: none;
+  padding: 13px 18px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.form button:hover    { background: #2a6cd6; }
+.form button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.form-note {
+  margin-top: 8px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.18);
+}
+
+/* Support / Donate */
+.support-row {
+  display: flex;
+  gap: 10px;
+}
+.support-btn {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  line-height: 1.4;
+}
+.support-btn:hover {
+  border-color: rgba(244,163,0,0.4);
+  color: #F4A300;
+  background: rgba(244,163,0,0.05);
+}
+.support-btn .btn-icon { font-size: 18px; display: block; margin-bottom: 4px; }
+.support-btn .btn-label { font-size: 11px; display: block; }
+
+/* Contact */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.contact-link:hover {
+  border-color: rgba(30,86,176,0.4);
+  background: rgba(30,86,176,0.06);
+}
+.contact-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.contact-info .contact-title {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+}
+.contact-info .contact-val {
+  font-size: 11px;
+  color: rgba(255,255,255,0.28);
+  margin-top: 1px;
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 20px;
+  left: 0; right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: #3d4870;
+  z-index: 2;
+  opacity: 0;
+  animation: up 0.8s cubic-bezier(.22,1,.36,1) 1s forwards;
+}
+
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: #1E56B0;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 11px 26px;
+  border-radius: 100px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(.22,1,.36,1);
+  z-index: 99;
+  white-space: nowrap;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+#toast.err  { background: #b91c1c; }
+
+@keyframes up {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px 0;
+    padding: 48px 24px 72px;
+  }
+  .vdivider {
+    display: none;
+  }
+  .left, .right { padding: 0; }
+}
+</style>
 </head>
 <body>
 
-<canvas id="c"></canvas>
-<div class="grain"></div>
+<div class="wrapper">
 
-<div class="stage">
+  <!-- LEFT -->
+  <div class="left">
 
-  <div class="logo">SnaFrate</div>
+    <div class="logo">SnaFrate</div>
+    <div class="tagline">Shop Wholesale. Ship Anywhere.</div>
+    <div class="hdivider"></div>
+    <div class="coming">COMING SOON</div>
 
-  <div class="pill">
-    <div class="pill-dot"></div>
-    Something big is coming
+    <p class="desc">
+      A modern B2B wholesale marketplace connecting Ghanaian businesses to local suppliers and factory-direct manufacturers in China.
+    </p>
+
+    <div class="pills">
+      <span class="pill">📦 Bulk Wholesale</span>
+      <span class="pill">🚢 China Direct</span>
+      <span class="pill">🇬🇭 Built for Ghana</span>
+      <span class="pill">🛡️ Escrow Protected</span>
+    </div>
+
   </div>
 
-  <h1 class="headline">
-    Shop Wholesale.<br/>
-    <span class="outline">Ship Anywhere.</span>
-  </h1>
+  <!-- DIVIDER -->
+  <div class="vdivider"></div>
 
-  <p class="sub">
-    Ghana's wholesale marketplace — connecting buyers with local suppliers and factories in China.
-  </p>
+  <!-- RIGHT -->
+  <div class="right">
 
-  <div class="notify">
-    <input type="email" id="email-input" placeholder="Enter your email for early access" autocomplete="email"/>
-    <button id="notify-btn" onclick="handleNotify()">Notify Me</button>
-  </div>
+    <!-- Notify -->
+    <div class="card c1">
+      <div class="card-label">
+        <div class="dot dot-blue"></div>
+        Stay Updated
+      </div>
+      <div class="form">
+        <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email"/>
+        <button id="notify-btn" onclick="handleNotify()">Notify Me</button>
+      </div>
+      <p class="form-note">Be the first to know when we launch. No spam.</p>
+    </div>
 
-  <div class="icons-row">
-    <div class="icon-chip">
-      <div class="icon-wrap">📦</div>
-      <span class="icon-label">Bulk</span>
+    <!-- Support / Donate -->
+    <div class="card c2">
+      <div class="card-label">
+        <div class="dot dot-gold"></div>
+        Support Our Launch
+      </div>
+      <div class="support-row">
+        <a href="mailto:support@snafrate.com?subject=I'd like to support SnaFrate" class="support-btn">
+          <span class="btn-icon">🤝</span>
+          <span class="btn-label">Partner With Us</span>
+        </a>
+        <a href="mailto:support@snafrate.com?subject=Donation - SnaFrate" class="support-btn">
+          <span class="btn-icon">💛</span>
+          <span class="btn-label">Make a Donation</span>
+        </a>
+        <a href="mailto:support@snafrate.com?subject=Investor Inquiry - SnaFrate" class="support-btn">
+          <span class="btn-icon">📈</span>
+          <span class="btn-label">Invest</span>
+        </a>
+      </div>
     </div>
-    <div class="icon-chip">
-      <div class="icon-wrap">🛡️</div>
-      <span class="icon-label">Secure</span>
+
+    <!-- Contact -->
+    <div class="card c3">
+      <div class="card-label">
+        <div class="dot dot-gray"></div>
+        Get in Touch
+      </div>
+      <div class="contact-links">
+        <a href="mailto:support@snafrate.com" class="contact-link">
+          <span class="contact-icon">✉️</span>
+          <div class="contact-info">
+            <div class="contact-title">Email Us</div>
+            <div class="contact-val">support@snafrate.com</div>
+          </div>
+        </a>
+        <a href="https://wa.me/233000000000" target="_blank" class="contact-link">
+          <span class="contact-icon">💬</span>
+          <div class="contact-info">
+            <div class="contact-title">WhatsApp</div>
+            <div class="contact-val">Chat with the team</div>
+          </div>
+        </a>
+      </div>
     </div>
-    <div class="icon-chip">
-      <div class="icon-wrap">🇬🇭</div>
-      <span class="icon-label">Ghana</span>
-    </div>
-    <div class="icon-chip">
-      <div class="icon-wrap">🚢</div>
-      <span class="icon-label">Import</span>
-    </div>
-    <div class="icon-chip">
-      <div class="icon-wrap">💰</div>
-      <span class="icon-label">Savings</span>
-    </div>
+
   </div>
 
 </div>
 
-<div class="footer">
-  &copy; 2026 <span>SnaFrate Ltd.</span> &mdash; All rights reserved.
-</div>
+<div class="footer">© 2026 SnaFrate &nbsp;·&nbsp; Built for Global Trade</div>
 
 <div id="toast"></div>
 
-<script src="assets/js/canvas.js"></script>
-<script src="assets/js/notify.js"></script>
+<script>
+function showToast(msg, err) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.toggle('err', !!err);
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+async function handleNotify() {
+  const input = document.getElementById('email-input');
+  const btn   = document.getElementById('notify-btn');
+  const email = input.value.trim();
+
+  if (!email || !email.includes('@') || !email.includes('.')) {
+    showToast('Please enter a valid email.', true);
+    return;
+  }
+
+  btn.textContent = 'Sending…';
+  btn.disabled    = true;
+
+  try {
+    const res = await fetch('/api/notify', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ email }),
+    });
+    if (res.ok) {
+      showToast("🎉 You're on the list! Check your inbox.");
+      input.value = '';
+    } else {
+      const d = await res.json().catch(() => ({}));
+      showToast(d.error || 'Something went wrong.', true);
+    }
+  } catch {
+    showToast('Network error. Try again.', true);
+  }
+
+  btn.textContent = 'Notify Me';
+  btn.disabled    = false;
+}
+
+document.getElementById('email-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') handleNotify();
+});
+</script>
 </body>
 </html>
