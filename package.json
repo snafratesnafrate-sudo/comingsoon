@@ -1,0 +1,8 @@
+{
+  "name": "snafrate-coming-soon",
+  "version": "1.0.0",
+  "description": "SnaFrate coming soon page with email capture",
+  "dependencies": {
+    "nodemailer": "^6.9.9"
+  }
+}
